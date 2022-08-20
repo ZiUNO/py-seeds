@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="59a5e932-ca26-427b-b10c-10e55555ff6d" name="seeds">
+        <fileTransfer rootFolder="/home/zycao/PaperWork/py-seeds" accessType="SFTP" host="182.92.127.67" port="6000" sshConfigId="4ef89cd3-6267-4385-b168-89c879401730" sshConfig="my">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
