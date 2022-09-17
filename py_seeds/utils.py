@@ -14,6 +14,7 @@ from typing import Optional, Callable, Any
 
 import numpy as np
 import torch
+from torch.cuda import device_count
 
 log = logging.getLogger(__name__)
 
@@ -98,7 +99,7 @@ def get_seed_state():
     random_state = random.getstate()
     np_state = np.random.get_state()
     torch_state = torch.random.get_rng_state()
-    torch_cuda_state = torch.cuda.get_rng_state()
+    torch_cuda_state = torch.cuda.get_rng_state_all()
     return OrderedDict(random=random_state, numpy=np_state, torch=torch_state, torch_cuda=torch_cuda_state)
 
 
@@ -111,4 +112,5 @@ def set_seed_state(state: OrderedDict):
     random.setstate(random_state)
     np.random.set_state(np_state)
     torch.set_rng_state(torch_state)
-    torch.cuda.set_rng_state(torch_cuda_state)
+    for i in range(device_count()):
+        torch.cuda.set_rng_state(torch_cuda_state[i], i)

@@ -12,7 +12,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="py-seeds",  # Replace with your own username
-    version="0.0.1",
+    version="0.0.2",
     author="ZiUNO",
     author_email="ziuno@qq.com",
     description="Seed function for random, torch, torch.cuda",
@@ -22,4 +22,7 @@ setuptools.setup(
     packages=setuptools.find_packages(),
     license='MIT',
     python_requires='>=3.6',
+    install_requires=['numpy', 'torch']
 )
+
+# twine upload dist/*
